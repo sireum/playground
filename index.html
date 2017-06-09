@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html style="height: 100vh; width: 100%; margin:0;">
+<head>
+    <meta charset="UTF-8">
+    <title>Sireum</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="min/css/bulma-pulse.css"/>
+    <link rel="stylesheet" href="min/css/font-awesome.css"/>
+    <link rel="stylesheet" href="min/css/amaran.css"/>
+    <script type="text/javascript" src="min/vs/loader.js"></script>
+    <script type="text/javascript" src="min/jquery.js"></script>
+    <script type="text/javascript" src="min/jquery.amaran.js"></script>
+    <script type="text/javascript" src="min/FileSaver.js"></script>
+    <script type="text/javascript" src="min/web-opt.js"></script>
+</head>
+<body style="height: 100%; width: 100%; margin:0;">
+<input id="file-input" type="file" name="name" style="display: none;" accept=".zip,application/zip" multiple />
+<div id="welcome" class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="button title is-primary" style="overflow: hidden;">
+            <div class="button is-loading is-primary is-large"></div>
+            <h1 class="button title is-1 is-primary">Sireum Playground</h1>
+        </div>
+    </div>
+</div>
+<script>
+var GitHub = null;
+var Amaran = $.amaran;
+var JSZip = null;
+require.config({ paths: { 'vs': 'min/vs' }});
+require(['vs/editor/editor.main', 'min/GitHub', 'min/jszip'],
+  function(vs, gh, jszip) {
+    GitHub = gh;
+    JSZip = jszip;
+    org.sireum.web.Main.main();
+  }
+);
+</script>
+</body>
+</html>
