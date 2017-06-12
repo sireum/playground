@@ -31,7 +31,7 @@ var Amaran = $.amaran;
 var GitHub = null;
 var JSZip = null;
 require.config({ paths: { 'vs': 'min/vs' }});
-require(['vs/editor/editor.main', 'min/GitHub', 'min/jszip'], (vs, gh, jszip) => {
+require(['vs/editor/editor.main', 'min/GitHub', 'min/jszip'], function (vs, gh, jszip) {
   GitHub = gh;
   JSZip = jszip;
   org.sireum.web.Main.main();
